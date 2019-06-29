@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+<style>
+	body{ background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2b2UiywZkcLkyuULtQLYX9FWyBPolSyiG8j3AREESsgk2ueNx);
+		background-repeat: no-repeat;
+			outline: solid white 20px ;
+			width: 30%;
+			margin-top: 20vh;
+			margin-left: 70vh;
+			background-size: cover;
+
+	}
+	#input, #answer{
+		width: 70%;
+		text-align: center;
+		margin-left: 60px;
+		
+	}
+	
+
+</style>
+<br>
+
+<h1 style="font-family: cursive; text-align: center; color: white;">Calculator</h1>
+</head>
+
+
+<body>
+
+
+
+
+<input type="text" id="input" placeholder="0" readonly="readonly" style="height: 30px;"><br><br>
+<input type="text" id="answer" readonly="readonly" style="height: 30px;"><br>
+<table style="font-size: 30px; text-align: center; margin-left: 20vh;">
+	<tr class = "row">
+		<td>
+<br>
+
+<input type="button" value="1" onclick="getnumber(1)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="2" onclick="getnumber(2)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="3" onclick="getnumber(3)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="+" onclick="getoperand('+')" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+</tr>
+</td>
+<tr class="row">
+	<td>
+<input type="button" value="4" onclick="getnumber(4)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="5" onclick="getnumber(5)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="6" onclick="getnumber(6)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="-" onclick="getoperand('-')" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+</tr>
+</td>
+<tr class="row">
+	<td>
+<input type="button" value="7" onclick="getnumber(7)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="8" onclick="getnumber(8)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="9" onclick="getnumber(9)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="*" onclick="getoperand('*')" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+</tr>
+</td>
+<tr class="row">
+	<td>
+<input type="button" value="=" onclick="compute()" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="0" onclick="getnumber(0)" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+<input type="button" value="CE" onclick="clearscreen()" style="width: 40px; height: 40px; border-radius: 8px; background-color: red; font-size: 15px;">
+<input type="button" value="/" onclick="getoperand('/')" style="width: 40px; height: 40px; border-radius: 8px; font-size: 25px;">
+</tr>
+</td>
+
+</table>
+<br>
+<br>
+
+	<script>
+		
+function getnumber(num){
+	var var_input = document.getElementById('input');
+	switch(num){
+		case 1: var_input.value +=1;
+		break;
+		case 2: var_input.value +=2;
+		break;
+		case 3: var_input.value +=3;
+		break;
+		case 4: var_input.value +=4;
+		break;
+		case 5: var_input.value +=5;
+		break;
+		case 6: var_input.value +=6;
+		break;
+		case 7: var_input.value +=7;
+		break;
+		case 8: var_input.value +=8;
+		break;
+		case 9: var_input.value +=9;
+		break;
+		case 0: var_input.value +=0;
+		break;
+		
+	}
+
+}
+
+function clearscreen(){
+	document.getElementById('input').value = "";
+	document.getElementById('answer').value = "";
+}
+
+function getoperand(operand){
+	var var_input = document.getElementById('input');
+	switch(operand){
+		case '+': var_input.value += '+';
+		break;
+		case '-': var_input.value += '-';
+		break;
+		case '*': var_input.value += '*';
+		break;
+		case '/': var_input.value += '/';
+		break;
+
+	}
+
+}
+
+function compute(){
+	var var_input = document.getElementById('input');
+	ans = Math.floor(+eval(var_input.value));
+	document.getElementById('answer').value = '=' + ans;
+
+}
+
+	</script>
+
+
+
+
+</body>
+</html>
