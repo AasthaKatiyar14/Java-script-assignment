@@ -1,0 +1,10 @@
+Assignment 1: Draw a text box and color the division portion of the box and click on box to color next box.
+ 
+Ans: https://jsfiddle.net/1h7f03g8/
+
+
+
+Ques : how many days hours minutes seconds for  cmas.
+
+
+https://jsfiddle.net/jq3gL267/1
