@@ -1,10 +1,10 @@
 1.Enter a string and convert it and return to alphabetical ordered string
-Ans: https://jsfiddle.net/8mpor5qb/
+Ans: https://jsfiddle.net/8s2wvp7d/
 
 
 
 Ques: different formats for dates.
-https://jsfiddle.net/8mpor5qb/
+https://jsfiddle.net/8s2wvp7d/1/
 
 Ques: Enter a string and remove the specified character.
 https://jsfiddle.net/dv02e1bs/
