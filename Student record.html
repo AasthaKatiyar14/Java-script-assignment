@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+	var clickcount=3;
+$(document).ready(function(){
+		var student_name = $("#stdname").val();
+var subject_name = document.getElementById("subname").value;
+var marks_obtained = document.getElementById("marksobtn").value;
+$("tr").each(function(x) { if (x % 2) this.style.backgroundColor = "#FBF9F4"; });
+    
+    $(".addrow").click(function(){
+    	clickcount= clickcount+1;
+    $(".tablesorter").append("<tr><td> "+student_name+" </td><td>"+subject_name+"</td><td>"+marks_obtained+" &emsp;&emsp;<button>Delete</button></td></tr>");
+    $("tr").each(function(x) { if (x % 2) this.style.backgroundColor = "#FBF9F4"; });
+    });
+});
+
+function count()	{
+			document.getElementById("records_count").innerHTML = clickcount;
+		}
+
+//delete row;
+
+$(document).ready(function() {
+        $('.deleteRowButton').click(function DeleteRow()
+  	  {
+    	  $(this).parents('tr').remove();
+    	}	);
+        
+
+      });
+
+$("#drop-down").on('change', function(){
+          var selected=this.value;
+          var rows = $("#mytable tr:not(:first-child)");
+          if(selected!="All")
+          {
+            rows.filter(selected).show();
+            rows.not(selected).hide();
+
+          }
+          else{
+            rows.show();
+          }
+        });
+
+//sort values
+
+function sortTable(){
+  var rows = $('#tableid tbody  tr').get();
+
+  rows.sort(function(a, b) {
+
+  var A = $(a).children('td').eq(0).text().toUpperCase();
+  var B = $(b).children('td').eq(0).text().toUpperCase();
+
+  if(A < B) {
+    return -1;
+  }
+
+  if(A > B) {
+    return 1;
+  }
+
+  return 0;
+
+  });
+
+  $.each(rows, function(index, row) {
+    $('#tableid').children('tbody').append(row);
+  });
+}
+
+function sortTablebyNum(){
+  var rows = $('#tableid tbody  tr').get();
+
+  rows.sort(function(a, b) {
+
+  var A = $(a).children('td').eq(2).text();
+  var B = $(b).children('td').eq(2).text();
+
+  if(A < B) {
+    return -1;
+  }
+
+  if(A > B) {
+    return 1;
+  }
+
+  return 0;
+
+  });
+
+  $.each(rows, function(index, row) {
+    $('#tableid').children('tbody').append(row);
+  });
+}
+
+//Add drop down to the system
+
+function dropdown(){
+                    var newopt = $('#email').val();
+                    if (newopt == '') {
+                        
+                      return false;
+                    }
+                    var flag=false;
+                    //check if the option value is already in the select box
+                    $('#dropdown1 option').each(function (index) {
+                        if ($(this).val() == newopt) {
+                          flag=true;
+                          return false;
+                        }
+                    });
+                    if(flag)
+                    {
+                        return false;
+                    }
+                    //add the new option to the select box
+                    $('#dropdown1').append('<option value=' + newopt + '>' + newopt + '</option>');
+ 
+                    //select the new option (particular value)
+                    $('#dropdown1 option[value="' + newopt + '"]').prop('selected', true);
+                
+            
+          }
+
+
+</script>
+
+<style>
+.tablesorter{
+    border-collapse: collapse;
+    border: 2px solid #846733;
+  }
+.tablesorter th{
+    border: 2px solid #544221;
+    color: #fff;
+    background:#846733;
+  }
+.tablesorter tr{
+    padding:10px;
+    border: 1px dotted black;
+    color: #000;
+    background:#D0BA80;
+  }
+.tablesorter td{
+    padding:10px;
+    border: 1px dotted black;
+    color: #000;
+
+  }
+.btn
+{
+    margin-left:80vh;
+}
+.addrow
+{
+    margin-left:90vh;
+}
+</style>
+
+</head>
+
+<body>
+
+<div style="margin-left: 80vh;">
+	Filter by Subject: &nbsp;
+		<div id ="dropdown">
+        <select class="subject" id="dropdown1" data-toggle="dropdown">
+  <option class="dropdown-item" id="all" onclick="getsub()" value="All">All</option>
+</select><br><br>
+</div>
+	
+	Insert Student Data<br><br>
+	Student Name :- &nbsp;
+	<input type="text" id = "stdname" name="name"><br><br>
+	Subject  Name :- &nbsp;
+	<input type="text" id="subname" name="subject"><br><br>
+	Marks obtained :- &nbsp;
+	<input type="Number" id="marksobtn" name="marks"><br><br>
+	
+
+	
+</div>
+
+<button class="addrow">Add recods</button><br /><br><br>
+<table id="tableid" class="tablesorter" style="text-align: center; width: 40%; margin-left: 60vh;">
+  <thead>
+  <tr>
+      <th id = "stdname1">Student name</th>
+      <th id = "subjectname1">Subject name</th>
+      <th id = "marksobtined1">marks obtained &nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td>David</td>
+      <td>java</td>
+      <td>87&emsp; &emsp;<button class="deleteRowButton" onclick="DeleteRow()">Delete</button></td>
+  </tr>
+  <tr>
+      <td>Bill</td>
+      <td>C++</td>
+      <td>98&emsp; &emsp;<button class="deleteRowButton" onclick="DeleteRow()">Delete</button></td>
+  </tr>
+  <tr>
+      <td>Arun</td>
+      <td>C</td>
+      <td>87&emsp; &emsp;<button class="deleteRowButton" onclick="DeleteRow()">Delete</button></td>
+  </tr>  
+  </tbody>
+</table>
+<br><br>
+<button class="btn" onclick="sortTable()">Sort By Name</button>
+	<button id="sortmarks" onclick="sortTablebyNum()">Sort By Marks</button>
+	<button id = "count_records" onclick="count()">Total Records</button>&emsp;
+	=&emsp; <textarea id = "records_count" style="width: 25px;, height: 9px;"></textarea>
+	
+</body>
+</html>
+
