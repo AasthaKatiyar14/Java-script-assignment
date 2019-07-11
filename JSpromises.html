@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS PROMISES</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<script>
+	var promise = new Promise(function(resolve, reject) {    
+	setTimeout(function() {resolve('hello I am Aastha Katiyar');}, 2000);
+	setTimeout(function() {reject(new Error("Whoops!")), 2000});
+
+ 
+	});
+	
+	promise.then(function(data) {alert(data);});
+	promise.then(function(data) {alert("Today is 6 th july");});
+	promise.then(function(data) {alert("This is the javascript assignment");});
+	promise.catch(alert("error scaned!!!"));
+	promise.catch(alert("error encountered!!!"));
+	promise.catch(alert("error resolved!!!"));
+
+
+</script>
+</head>
+<body> 
+
+
+</body>
+</html>
