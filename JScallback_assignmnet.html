@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Callback Function in JS </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style>
+button{
+	padding: 15px 32px;
+	text-align: center;
+	font-size: 15px;
+	margin-right:16px;	
+	background-color: purple;
+	border-radius:8px;
+	border: black;
+	color: white;
+	}
+.textbox, #radio{
+	width: 20vh;
+	text-align: center;
+	margin-left: 10vh;
+}
+</style>
+<script>
+
+function changebgcolor(color)
+{
+	
+document.getElementById("one").style.backgroundColor = color;
+document.getElementById("two").style.backgroundColor = color;
+document.getElementById("three").style.backgroundColor = color;
+document.getElementById("four").style.backgroundColor = color;
+}
+
+function selblue(bcolor){
+
+document.getElementById("three").style.backgroundColor = bcolor;
+document.getElementById("four").style.backgroundColor = bcolor;
+document.getElementById("one").style.display = 'none';
+document.getElementById("two").style.display = 'none';
+
+}
+
+$(document).ready(function(){
+	$("button").click(function clickgreen(){
+		changebgcolor('green');
+	$(".textbox").slideToggle("slow");
+	
+	}); 
+
+	
+});
+</script>
+
+
+</head>
+<body>
+	<form style="margin-left: 80vh; margin-top: 20vh;">
+<div class ="textbox">		
+		<b>Text box 1: </b><input type="text" id="one" name="FirstName"><br>
+<b>Text Box 2: </b><input type="text" id="two" name="LastName"><br>
+<b>Text Box 3: </b><input type="text" id="three" name="LastName"><br>
+<b>Text Box 4: </b><input type="text" id="four" name="LastName"><br>
+</div>
+<br>
+<b style="font-size: 20px;">Select a color to see the effect:</b><br><br>
+	<div id="radio">	
+<input type="radio" id="bred" name="gender" onclick="changebgcolor('red')"><b>Red</b><br>
+  <input type="radio" id="bgreen" name="gender" value="female"><b>Green</b><br>
+  <input type="radio" id="bblue" name="gender" value="other" onclick="selblue('blue')"><b>Blue</b> 
+</div><br>
+
+
+  
+	</form>
+<button onclick="clickgreen()" style="margin-left: 90vh;">Submit color</button><br>
+</body>
+</html>
+
+
+
+
+
